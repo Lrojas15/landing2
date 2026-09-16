@@ -37,7 +37,6 @@
   img{max-width:100%; display:block;}
   .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
 
-  /* ---------- placeholder media blocks ---------- */
   .ph{
     background:
       linear-gradient(135deg, rgba(255,255,255,0.10) 25%, transparent 25%) -12px 0/24px 24px,
@@ -56,7 +55,6 @@
   .ph.dark{ background-color:var(--ink); }
   .ph.gold{ background-color:#8a6a3f; }
 
-  /* ---------- top bar ---------- */
   header{
     position:sticky; top:0; z-index:40;
     background:var(--whitewash);
@@ -73,7 +71,7 @@
     color:var(--ink);
   }
   .brand span{ color:var(--gold); }
-  .nav-links{ display:flex; gap:36px; list-style:none; }
+  .nav-links{ display:flex; align-items:center; gap:36px; list-style:none; }
   .nav-links a{
     font-size:14.5px; color:var(--ink); position:relative;
   }
@@ -87,9 +85,16 @@
     border:1px solid var(--ink); padding:9px 20px; border-radius:2px;
     font-size:14px;
   }
+  .nav-right{ display:flex; align-items:center; gap:16px; }
+  #lang-toggle{
+    border:1px solid var(--gold); color:var(--ink);
+    padding:8px 14px; border-radius:2px; font-size:13px; font-weight:600;
+    letter-spacing:0.03em; cursor:pointer; background:transparent;
+    transition:background .2s ease, color .2s ease;
+  }
+  #lang-toggle:hover{ background:var(--gold); color:var(--whitewash); }
   .nav-toggle{ display:none; }
 
-  /* ---------- hero ---------- */
   .hero{
     display:grid;
     grid-template-columns:1.05fr 0.95fr;
@@ -136,7 +141,6 @@
     pointer-events:none;
   }
 
-  /* ---------- stat strip ---------- */
   .stat-strip{
     background:var(--parchment);
     border-bottom:1px solid var(--line);
@@ -157,7 +161,6 @@
   }
   .stat span{ font-size:13px; color:#5a5648; }
 
-  /* ---------- section heading pattern ---------- */
   .section{ padding:96px 0; }
   .section-head{
     display:flex; justify-content:space-between; align-items:flex-end;
@@ -166,7 +169,6 @@
   .section-head h2{ font-size:clamp(28px,3vw,38px); max-width:560px; }
   .section-head p{ max-width:340px; color:#5a5648; font-size:15px; }
 
-  /* ---------- experience cards ---------- */
   .experience-grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
@@ -190,7 +192,6 @@
   .exp-price span{ font-size:12px; color:#8a8574; display:block; }
   .exp-link{ font-size:13.5px; color:var(--ink); border-bottom:1px solid var(--gold); }
 
-  /* ---------- about split ---------- */
   .about{
     background:var(--ink); color:var(--whitewash);
   }
@@ -208,7 +209,6 @@
   }
   .about-list li b{ color:var(--gold-soft); font-family:'Fraunces',serif; font-weight:500; }
 
-  /* ---------- testimonials ---------- */
   .testimonials{ background:var(--parchment); }
   .quote-row{
     display:grid; grid-template-columns:repeat(3,1fr); gap:40px;
@@ -222,7 +222,6 @@
   .quote-who b{ display:block; font-size:14px; color:var(--ink); }
   .quote-who span{ font-size:12.5px; color:#8a8574; }
 
-  /* ---------- CTA band ---------- */
   .cta-band{
     background:var(--gold);
     color:var(--ink);
@@ -237,7 +236,6 @@
     padding:15px 28px; border-radius:2px; font-size:14.5px; white-space:nowrap;
   }
 
-  /* ---------- footer ---------- */
   footer{ background:var(--ink); color:rgba(247,245,240,0.7); }
   .footer-grid{
     display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr;
@@ -258,7 +256,6 @@
     display:flex; justify-content:space-between; color:rgba(247,245,240,0.45);
   }
 
-  /* ---------- responsive ---------- */
   @media (max-width: 900px){
     .nav-links{ display:none; }
     .hero{ grid-template-columns:1fr; }
@@ -282,121 +279,124 @@
   <div class="nav">
     <div class="brand">Río <span>Adentro</span></div>
     <ul class="nav-links">
-      <li><a href="#experiencias">Experiencias</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#opiniones">Opiniones</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#experiencias" data-es="Experiencias" data-en="Experiences">Experiencias</a></li>
+      <li><a href="#nosotros" data-es="Nosotros" data-en="About us">Nosotros</a></li>
+      <li><a href="#opiniones" data-es="Opiniones" data-en="Reviews">Opiniones</a></li>
+      <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
     </ul>
-    <a href="#contacto" class="nav-cta">Reservar</a>
+    <div class="nav-right">
+      <button id="lang-toggle" type="button">EN</button>
+      <a href="#contacto" class="nav-cta" data-es="Reservar" data-en="Book now">Reservar</a>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="hero-kicker">Turismo fluvial · Texto de ejemplo</div>
-    <h1>El río tiene<br>su propio ritmo</h1>
-    <p>Sustituye este texto por la propuesta real: qué ofreces, a quién, y por qué elegirte a ti. Una o dos frases directas bastan.</p>
+    <div class="hero-kicker" data-es="Turismo fluvial · Texto de ejemplo" data-en="River tourism · Sample text">Turismo fluvial · Texto de ejemplo</div>
+    <h1 data-es="El río tiene<br>su propio ritmo" data-en="The river keeps<br>its own rhythm">El río tiene<br>su propio ritmo</h1>
+    <p data-es="Sustituye este texto por la propuesta real: qué ofreces, a quién, y por qué elegirte a ti. Una o dos frases directas bastan." data-en="Replace this text with your real pitch: what you offer, to whom, and why choose you. One or two direct sentences are enough.">Sustituye este texto por la propuesta real: qué ofreces, a quién, y por qué elegirte a ti. Una o dos frases directas bastan.</p>
     <div class="hero-actions">
-      <a href="#experiencias" class="btn-primary">Ver experiencias</a>
-      <a href="#nosotros" class="btn-ghost">Conócenos</a>
+      <a href="#experiencias" class="btn-primary" data-es="Ver experiencias" data-en="View experiences">Ver experiencias</a>
+      <a href="#nosotros" class="btn-ghost" data-es="Conócenos" data-en="Learn more">Conócenos</a>
     </div>
   </div>
   <div class="hero-media">
-    <div class="ph dark">Imagen principal — reemplazar</div>
+    <div class="ph dark" data-es="Imagen principal — reemplazar" data-en="Main image — replace">Imagen principal — reemplazar</div>
   </div>
 </section>
 
 <section class="stat-strip">
   <div class="wrap">
-    <div class="stat"><b>000</b><span>Etiqueta del dato</span></div>
-    <div class="stat"><b>00</b><span>Etiqueta del dato</span></div>
-    <div class="stat"><b>0.0</b><span>Etiqueta del dato</span></div>
-    <div class="stat"><b>00+</b><span>Etiqueta del dato</span></div>
+    <div class="stat"><b>000</b><span data-es="Etiqueta del dato" data-en="Stat label">Etiqueta del dato</span></div>
+    <div class="stat"><b>00</b><span data-es="Etiqueta del dato" data-en="Stat label">Etiqueta del dato</span></div>
+    <div class="stat"><b>0.0</b><span data-es="Etiqueta del dato" data-en="Stat label">Etiqueta del dato</span></div>
+    <div class="stat"><b>00+</b><span data-es="Etiqueta del dato" data-en="Stat label">Etiqueta del dato</span></div>
   </div>
 </section>
 
 <section class="section" id="experiencias">
   <div class="wrap">
     <div class="section-head">
-      <h2>Título de la sección de servicios o tours</h2>
-      <p>Frase corta explicando qué tipo de experiencias se listan abajo y cómo elegir entre ellas.</p>
+      <h2 data-es="Título de la sección de servicios o tours" data-en="Section title for services or tours">Título de la sección de servicios o tours</h2>
+      <p data-es="Frase corta explicando qué tipo de experiencias se listan abajo y cómo elegir entre ellas." data-en="Short sentence explaining the kind of experiences listed below and how to choose between them.">Frase corta explicando qué tipo de experiencias se listan abajo y cómo elegir entre ellas.</p>
     </div>
     <div class="experience-grid">
 
       <article class="exp-card">
-        <div class="ph">Imagen — tarjeta 1</div>
+        <div class="ph" data-es="Imagen — tarjeta 1" data-en="Image — card 1">Imagen — tarjeta 1</div>
         <div class="exp-body">
-          <div class="exp-tag">Categoría</div>
-          <h3>Nombre de la experiencia</h3>
-          <p>Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
+          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
+          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
+          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
           <div class="exp-foot">
-            <div class="exp-price"><span>Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link">Ver más</a>
+            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
+            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
           </div>
         </div>
       </article>
 
       <article class="exp-card">
-        <div class="ph">Imagen — tarjeta 2</div>
+        <div class="ph" data-es="Imagen — tarjeta 2" data-en="Image — card 2">Imagen — tarjeta 2</div>
         <div class="exp-body">
-          <div class="exp-tag">Categoría</div>
-          <h3>Nombre de la experiencia</h3>
-          <p>Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
+          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
+          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
+          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
           <div class="exp-foot">
-            <div class="exp-price"><span>Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link">Ver más</a>
+            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
+            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
           </div>
         </div>
       </article>
 
       <article class="exp-card">
-        <div class="ph">Imagen — tarjeta 3</div>
+        <div class="ph" data-es="Imagen — tarjeta 3" data-en="Image — card 3">Imagen — tarjeta 3</div>
         <div class="exp-body">
-          <div class="exp-tag">Categoría</div>
-          <h3>Nombre de la experiencia</h3>
-          <p>Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
+          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
+          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
+          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
           <div class="exp-foot">
-            <div class="exp-price"><span>Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link">Ver más</a>
+            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
+            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
           </div>
         </div>
       </article>
 
       <article class="exp-card">
-        <div class="ph">Imagen — tarjeta 4</div>
+        <div class="ph" data-es="Imagen — tarjeta 4" data-en="Image — card 4">Imagen — tarjeta 4</div>
         <div class="exp-body">
-          <div class="exp-tag">Categoría</div>
-          <h3>Nombre de la experiencia</h3>
-          <p>Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
+          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
+          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
+          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
           <div class="exp-foot">
-            <div class="exp-price"><span>Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link">Ver más</a>
+            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
+            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
           </div>
         </div>
       </article>
 
       <article class="exp-card">
-        <div class="ph">Imagen — tarjeta 5</div>
+        <div class="ph" data-es="Imagen — tarjeta 5" data-en="Image — card 5">Imagen — tarjeta 5</div>
         <div class="exp-body">
-          <div class="exp-tag">Categoría</div>
-          <h3>Nombre de la experiencia</h3>
-          <p>Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
+          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
+          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
+          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
           <div class="exp-foot">
-            <div class="exp-price"><span>Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link">Ver más</a>
+            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
+            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
           </div>
         </div>
       </article>
 
       <article class="exp-card">
-        <div class="ph">Imagen — tarjeta 6</div>
+        <div class="ph" data-es="Imagen — tarjeta 6" data-en="Image — card 6">Imagen — tarjeta 6</div>
         <div class="exp-body">
-          <div class="exp-tag">Categoría</div>
-          <h3>Nombre de la experiencia</h3>
-          <p>Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
+          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
+          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
+          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
           <div class="exp-foot">
-            <div class="exp-price"><span>Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link">Ver más</a>
+            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
+            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
           </div>
         </div>
       </article>
@@ -408,17 +408,17 @@
 <section class="about" id="nosotros">
   <div class="wrap">
     <div class="about-media">
-      <div class="ph gold">Imagen institucional — reemplazar</div>
+      <div class="ph gold" data-es="Imagen institucional — reemplazar" data-en="Institutional image — replace">Imagen institucional — reemplazar</div>
     </div>
     <div class="about-copy">
-      <div class="hero-kicker">Quiénes somos</div>
-      <h2>Título sobre la misión o historia del proyecto</h2>
-      <p>Párrafo de ejemplo explicando el origen, el propósito y a quién sirve la organización o negocio.</p>
-      <p>Segundo párrafo opcional con más contexto o un llamado a conocer más.</p>
+      <div class="hero-kicker" data-es="Quiénes somos" data-en="Who we are">Quiénes somos</div>
+      <h2 data-es="Título sobre la misión o historia del proyecto" data-en="Title about the project's mission or story">Título sobre la misión o historia del proyecto</h2>
+      <p data-es="Párrafo de ejemplo explicando el origen, el propósito y a quién sirve la organización o negocio." data-en="Sample paragraph explaining the origin, purpose, and who the organization or business serves.">Párrafo de ejemplo explicando el origen, el propósito y a quién sirve la organización o negocio.</p>
+      <p data-es="Segundo párrafo opcional con más contexto o un llamado a conocer más." data-en="Optional second paragraph with more context or a call to learn more.">Segundo párrafo opcional con más contexto o un llamado a conocer más.</p>
       <ul class="about-list">
-        <li><b>01</b> Punto clave o valor diferencial número uno.</li>
-        <li><b>02</b> Punto clave o valor diferencial número dos.</li>
-        <li><b>03</b> Punto clave o valor diferencial número tres.</li>
+        <li><b>01</b> <span data-es="Punto clave o valor diferencial número uno." data-en="Key point or differentiator number one.">Punto clave o valor diferencial número uno.</span></li>
+        <li><b>02</b> <span data-es="Punto clave o valor diferencial número dos." data-en="Key point or differentiator number two.">Punto clave o valor diferencial número dos.</span></li>
+        <li><b>03</b> <span data-es="Punto clave o valor diferencial número tres." data-en="Key point or differentiator number three.">Punto clave o valor diferencial número tres.</span></li>
       </ul>
     </div>
   </div>
@@ -427,29 +427,29 @@
 <section class="section testimonials" id="opiniones">
   <div class="wrap">
     <div class="section-head">
-      <h2>Lo que dicen quienes ya vivieron la experiencia</h2>
-      <p>Reemplaza estas citas por testimonios reales de clientes o beneficiarios.</p>
+      <h2 data-es="Lo que dicen quienes ya vivieron la experiencia" data-en="What people who already tried it are saying">Lo que dicen quienes ya vivieron la experiencia</h2>
+      <p data-es="Reemplaza estas citas por testimonios reales de clientes o beneficiarios." data-en="Replace these quotes with real testimonials from clients or beneficiaries.">Reemplaza estas citas por testimonios reales de clientes o beneficiarios.</p>
     </div>
     <div class="quote-row">
       <div class="quote">
-        <p>"Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta."</p>
+        <p data-es="&quot;Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta.&quot;" data-en="&quot;Sample testimonial text. Replace with a real, short, concrete quote.&quot;">"Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta."</p>
         <div class="quote-who">
           <div class="ph" style="width:36px;height:36px;border-radius:50%;"></div>
-          <div><b>Nombre Apellido</b><span>Origen o contexto</span></div>
+          <div><b>Nombre Apellido</b><span data-es="Origen o contexto" data-en="Origin or context">Origen o contexto</span></div>
         </div>
       </div>
       <div class="quote">
-        <p>"Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta."</p>
+        <p data-es="&quot;Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta.&quot;" data-en="&quot;Sample testimonial text. Replace with a real, short, concrete quote.&quot;">"Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta."</p>
         <div class="quote-who">
           <div class="ph" style="width:36px;height:36px;border-radius:50%;"></div>
-          <div><b>Nombre Apellido</b><span>Origen o contexto</span></div>
+          <div><b>Nombre Apellido</b><span data-es="Origen o contexto" data-en="Origin or context">Origen o contexto</span></div>
         </div>
       </div>
       <div class="quote">
-        <p>"Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta."</p>
+        <p data-es="&quot;Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta.&quot;" data-en="&quot;Sample testimonial text. Replace with a real, short, concrete quote.&quot;">"Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta."</p>
         <div class="quote-who">
           <div class="ph" style="width:36px;height:36px;border-radius:50%;"></div>
-          <div><b>Nombre Apellido</b><span>Origen o contexto</span></div>
+          <div><b>Nombre Apellido</b><span data-es="Origen o contexto" data-en="Origin or context">Origen o contexto</span></div>
         </div>
       </div>
     </div>
@@ -458,8 +458,8 @@
 
 <section class="cta-band" id="contacto">
   <div class="wrap">
-    <h2>Frase de cierre invitando a reservar o contactar</h2>
-    <a href="https://wa.me/573239606356?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20detallada%20sobre%20la%20disponibilidad%20y%20tarifas%20de%20sus%20tours" class="btn-dark">Escribir por WhatsApp</a>
+    <h2 data-es="Frase de cierre invitando a reservar o contactar" data-en="Closing line inviting people to book or get in touch">Frase de cierre invitando a reservar o contactar</h2>
+    <a href="https://wa.me/573239606356?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20detallada%20sobre%20la%20disponibilidad%20y%20tarifas%20de%20sus%20tours" class="btn-dark" data-es="Escribir por WhatsApp" data-en="Message us on WhatsApp">Escribir por WhatsApp</a>
   </div>
 </section>
 
@@ -467,26 +467,26 @@
   <div class="footer-grid wrap">
     <div class="footer-brand">
       <h3>Río Adentro</h3>
-      <p>Descripción corta de una línea sobre el negocio o la fundación, para reemplazar.</p>
+      <p data-es="Descripción corta de una línea sobre el negocio o la fundación, para reemplazar." data-en="Short one-line description of the business or foundation, to replace.">Descripción corta de una línea sobre el negocio o la fundación, para reemplazar.</p>
     </div>
     <div class="footer-col">
-      <h4>NAVEGACIÓN</h4>
+      <h4 data-es="NAVEGACIÓN" data-en="NAVIGATION">NAVEGACIÓN</h4>
       <ul>
-        <li><a href="#experiencias">Experiencias</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#experiencias" data-es="Experiencias" data-en="Experiences">Experiencias</a></li>
+        <li><a href="#nosotros" data-es="Nosotros" data-en="About us">Nosotros</a></li>
+        <li><a href="#opiniones" data-es="Opiniones" data-en="Reviews">Opiniones</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>CONTACTO</h4>
+      <h4 data-es="CONTACTO" data-en="CONTACT">CONTACTO</h4>
       <ul>
-        <li><a href="#">+57 3239606356</a></li>
+        <li><a href="https://wa.me/573239606356">+57 3239606356</a></li>
         <li><a href="#">correo@ejemplo.com</a></li>
-        <li><a href="#">Dirección, Ciudad</a></li>
+        <li><a href="#" data-es="Dirección, Ciudad" data-en="Address, City">Dirección, Ciudad</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>REDES</h4>
+      <h4 data-es="REDES" data-en="SOCIAL">REDES</h4>
       <ul>
         <li><a href="#">Instagram</a></li>
         <li><a href="#">Facebook</a></li>
@@ -495,10 +495,28 @@
     </div>
   </div>
   <div class="footer-bottom wrap">
-    <span>© Nombre del proyecto</span>
-    <span>Plantilla de diseño</span>
+    <span data-es="© Nombre del proyecto" data-en="© Project name">© Nombre del proyecto</span>
+    <span data-es="Plantilla de diseño" data-en="Design template">Plantilla de diseño</span>
   </div>
 </footer>
+
+<script>
+  (function(){
+    let currentLang = 'es';
+    const toggleBtn = document.getElementById('lang-toggle');
+
+    toggleBtn.addEventListener('click', function(){
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      toggleBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
+
+      document.querySelectorAll('[data-es]').forEach(function(el){
+        el.innerHTML = el.getAttribute('data-' + currentLang);
+      });
+
+      document.documentElement.lang = currentLang;
+    });
+  })();
+</script>
 
 </body>
 </html>
