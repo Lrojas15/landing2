@@ -272,6 +272,84 @@
     .cta-band .wrap{ flex-direction:column; align-items:flex-start; }
     .footer-grid{ grid-template-columns:1fr 1fr; }
   }
+  .section-carousel-media {
+  position: relative;
+  overflow: hidden;
+  height: 420px;
+  border-radius: 6px;
+  margin-bottom: 40px;
+}
+  /* ESTILOS NECESARIOS PARA EL CARRUSEL */
+.section-carousel-media {
+  position: relative;
+  overflow: hidden;
+  height: 420px;
+  border-radius: 6px;
+  margin-bottom: 40px;
+  background: #000;
+}
+
+.carousel-slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 12px 16px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev { left: 15px; }
+.carousel-btn.next { right: 15px; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.carousel-dots .dot.active {
+  background: white;
+}
 </style>
 </head>
 <body>
@@ -335,6 +413,30 @@
       <p data-es="Vive la experiencia ideal en familia explorando la vida marina y las maravillas de Barú." data-en="Enjoy the perfect family plan exploring marine life and the wonders of Barú.">Vive la experiencia ideal en familia explorando la vida marina y las maravillas de Barú.</p>
     </div>
 
+    <!-- CARRUSEL DE 5 IMÁGENES -->
+    <div class="section-carousel-media">
+      <div class="carousel-slides" id="sectionCarouselSlides">
+        <div class="carousel-slide">
+          <img src="assets/img/foto1.jpg" alt="Isla Barú 1" onerror="this.src='assets/baru/kanenori-beach-6292382_1920.jpg'">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/img/foto2.jpg" alt="Isla Barú 2" onerror="this.src='assets/baru/kreidt-fotografie-boathouse-8055954_1920.jpg'">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/img/foto3.jpg" alt="Isla Barú 3" onerror="this.src='assets/baru/pexels-beach-1836335_1920.jpg'">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/img/foto4.jpg" alt="Isla Barú 4" onerror="this.src='assets/baru/pexels-beach-1867137_1920.jpg'">
+        </div>
+        <div class="carousel-slide">
+          <img src="assets/img/foto5.jpg" alt="Isla Barú 5" onerror="this.src='assets/baru/walkerssk-beach-1761410_1920.jpg'">
+        </div>
+      </div>
+      <button class="carousel-btn prev" id="secPrevBtn" aria-label="Anterior">&#10094;</button>
+      <button class="carousel-btn next" id="secNextBtn" aria-label="Siguiente">&#10095;</button>
+      <div class="carousel-dots" id="secCarouselDots"></div>
+    </div>
+
     <div class="tour-detail-grid">
       <div class="tour-card-box">
         <h3 data-es="El Tour Incluye" data-en="Tour Includes">El Tour Incluye</h3>
@@ -343,14 +445,14 @@
           <li data-es="Entrada incluida al Oceanario (recorrido de 2 horas)" data-en="Oceanarium admission included (2-hour tour)">Entrada incluida al Oceanario (recorrido de 2 horas)</li>
           <li data-es="Acompañamiento de guía dentro del Oceanario" data-en="Tour guide inside the Oceanarium">Acompañamiento de guía dentro del Oceanario</li>
           <li data-es="Coctel de frutas tropicales de bienvenida" data-en="Welcome tropical fruit cocktail">Coctel de frutas tropicales de bienvenida</li>
-          <div>
-            <li data-es="Almuerzo a elegir:" data-en="Choice of lunch:">Almuerzo a elegir:</li>
+          <li>
+            <span data-es="Almuerzo a elegir:" data-en="Choice of lunch:">Almuerzo a elegir:</span>
             <ul class="menu-sublist">
               <li data-es="Pollo / Pescado / Cerdo" data-en="Chicken / Fish / Pork">Pollo / Pescado / Cerdo</li>
               <li data-es="Opción vegetariana" data-en="Vegetarian option">Opción vegetariana</li>
               <li data-es="Menú infantil: Hamburguesa o Perro caliente" data-en="Kids menu: Burger or Hot dog">Menú infantil: Hamburguesa o Perro caliente</li>
             </ul>
-          </div>
+          </li>
         </ul>
       </div>
 
@@ -439,7 +541,7 @@
       <h4 data-es="CONTACTO" data-en="CONTACT">CONTACTO</h4>
       <ul>
         <li><a href="https://wa.me/573239606356">+57 3239606356</a></li>
-        <li><a href="#contacto" data-es="Isla Barú, Colombia" data-en="Isla Barú, Colombia">Isla Barú, Colombia</a></li>
+        <li><a href="#contacto" data-es="Cartagena de Indias, Colombia" data-en="Cartagena de Indias, Colombia">Cartagena de Indias, Colombia</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -459,21 +561,85 @@
 
 <script>
   (function(){
+    // 1. TRADUCCIÓN DE IDIOMA MEJORADA
     let currentLang = 'es';
     const toggleBtn = document.getElementById('lang-toggle');
 
-    toggleBtn.addEventListener('click', function(){
-      currentLang = currentLang === 'es' ? 'en' : 'es';
-      toggleBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function(){
+        currentLang = currentLang === 'es' ? 'en' : 'es';
+        toggleBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
 
-      document.querySelectorAll('[data-es]').forEach(function(el){
-        el.innerHTML = el.getAttribute('data-' + currentLang);
+        document.querySelectorAll('[data-es]').forEach(function(el){
+          // Solo modifica innerHTML si el elemento NO contiene etiquetas hijas complejas (como ul, div, etc.)
+          if (el.children.length === 0) {
+            el.textContent = el.getAttribute('data-' + currentLang);
+          } else {
+            el.innerHTML = el.getAttribute('data-' + currentLang);
+          }
+        });
+
+        document.documentElement.lang = currentLang;
+      });
+    }
+
+    // 2. LÓGICA PARA EL CARRUSEL DE LA SECCIÓN EXPERIENCIAS
+    const secSlides = document.getElementById('sectionCarouselSlides');
+    const secPrevBtn = document.getElementById('secPrevBtn');
+    const secNextBtn = document.getElementById('secNextBtn');
+    const secDotsContainer = document.getElementById('secCarouselDots');
+
+    if (secSlides && secDotsContainer && secPrevBtn && secNextBtn) {
+      const secItems = secSlides.querySelectorAll('.carousel-slide');
+      let secCurrentIndex = 0;
+      let secInterval;
+
+      // Crear puntos indicadores
+      secItems.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSecSlide(i));
+        secDotsContainer.appendChild(dot);
       });
 
-      document.documentElement.lang = currentLang;
-    });
+      const secDots = secDotsContainer.querySelectorAll('.dot');
+
+      function updateSecCarousel() {
+        secSlides.style.transform = `translateX(-${secCurrentIndex * 100}%)`;
+        secDots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === secCurrentIndex);
+        });
+      }
+
+      function goToSecSlide(index) {
+        secCurrentIndex = index;
+        updateSecCarousel();
+        resetSecInterval();
+      }
+
+      function nextSecSlide() {
+        secCurrentIndex = (secCurrentIndex + 1) % secItems.length;
+        updateSecCarousel();
+      }
+
+      function prevSecSlide() {
+        secCurrentIndex = (secCurrentIndex - 1 + secItems.length) % secItems.length;
+        updateSecCarousel();
+      }
+
+      function resetSecInterval() {
+        clearInterval(secInterval);
+        secInterval = setInterval(nextSecSlide, 4500);
+      }
+
+      secNextBtn.addEventListener('click', () => { nextSecSlide(); resetSecInterval(); });
+      secPrevBtn.addEventListener('click', () => { prevSecSlide(); resetSecInterval(); });
+
+      // Iniciar autoplay
+      secInterval = setInterval(nextSecSlide, 4500);
+    }
   })();
 </script>
-
 </body>
 </html>
