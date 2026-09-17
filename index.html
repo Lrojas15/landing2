@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Río Adentro — Plantilla de turismo</title>
+<title>Four Islands — Eco Family Tour Isla Barú</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
 
@@ -93,7 +93,6 @@
     transition:background .2s ease, color .2s ease;
   }
   #lang-toggle:hover{ background:var(--gold); color:var(--whitewash); }
-  .nav-toggle{ display:none; }
 
   .hero{
     display:grid;
@@ -134,9 +133,7 @@
     padding-bottom:2px;
   }
   .hero-media{ position:relative; overflow:hidden; }
-  .hero-media .ph{ width:100%; height:100%; }
   .hero-media img{ width:100%; height:100%; object-fit:cover; }
-  
 
   .stat-strip{
     background:var(--parchment);
@@ -153,8 +150,8 @@
   }
   .stat:first-child{ border-left:none; padding-left:0; }
   .stat b{
-    font-family:'Fraunces', serif; font-size:30px; display:block; color:var(--ink);
-    font-weight:500;
+    font-family:'Fraunces', serif; font-size:20px; display:block; color:var(--ink);
+    font-weight:600; margin-bottom:4px;
   }
   .stat span{ font-size:13px; color:#5a5648; }
 
@@ -166,28 +163,36 @@
   .section-head h2{ font-size:clamp(28px,3vw,38px); max-width:560px; }
   .section-head p{ max-width:340px; color:#5a5648; font-size:15px; }
 
-  .experience-grid{
+  .tour-detail-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:2px;
-    background:var(--line);
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    background:var(--whitewash);
     border:1px solid var(--line);
+    padding:36px;
+    border-radius:4px;
   }
-  .exp-card{ background:var(--whitewash); }
-  .exp-card .ph{ aspect-ratio:4/3; }
-  .exp-body{ padding:26px 24px 30px; }
-  .exp-tag{
-    font-size:12.5px; color:var(--gold); margin-bottom:10px;
+  .tour-card-box{
+    background:var(--parchment);
+    padding:28px;
+    border-left:4px solid var(--gold);
+    border-radius:2px;
   }
-  .exp-body h3{ font-size:19px; margin-bottom:10px; }
-  .exp-body p{ font-size:14.5px; color:#5a5648; margin-bottom:20px; }
-  .exp-foot{
-    display:flex; justify-content:space-between; align-items:center;
-    padding-top:16px; border-top:1px solid var(--line);
+  .tour-card-box h3{
+    font-size:22px; margin-bottom:16px; color:var(--ink);
   }
-  .exp-price b{ font-family:'Fraunces', serif; font-size:18px; color:var(--ink); }
-  .exp-price span{ font-size:12px; color:#8a8574; display:block; }
-  .exp-link{ font-size:13.5px; color:var(--ink); border-bottom:1px solid var(--gold); }
+  .tour-list{
+    list-style:none; display:flex; flex-direction:column; gap:12px; font-size:14.5px;
+  }
+  .tour-list li{
+    display:flex; align-items:flex-start; gap:10px; color:#3c3930;
+  }
+  .tour-list li::before{
+    content:"✓"; color:var(--green); font-weight:bold;
+  }
+  .menu-sublist{
+    margin-top:6px; margin-left:22px; list-style:disc; font-size:13.5px; color:#5a5648;
+  }
 
   .about{
     background:var(--ink); color:var(--whitewash);
@@ -215,7 +220,6 @@
   }
   .quote p{ font-size:15px; color:#3c3930; margin-bottom:18px; }
   .quote-who{ display:flex; align-items:center; gap:12px; }
-  .quote-avatar{ width:36px; height:36px; border-radius:50%; }
   .quote-who b{ display:block; font-size:14px; color:var(--ink); }
   .quote-who span{ font-size:12.5px; color:#8a8574; }
 
@@ -261,7 +265,7 @@
     .stat-strip .wrap{ grid-template-columns:repeat(2,1fr); row-gap:24px; }
     .stat{ border-left:none; padding-left:0; }
     .section-head{ flex-direction:column; align-items:flex-start; }
-    .experience-grid{ grid-template-columns:1fr; }
+    .tour-detail-grid{ grid-template-columns:1fr; }
     .about .wrap{ grid-template-columns:1fr; }
     .about-media{ order:-1; }
     .quote-row{ grid-template-columns:1fr; gap:36px; }
@@ -290,114 +294,75 @@
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="hero-kicker" data-es="Turismo fluvial · Texto de ejemplo" data-en="River tourism · Sample text">Turismo fluvial · Texto de ejemplo</div>
-    <h1 data-es="El río tiene<br>su propio ritmo" data-en="The river keeps<br>its own rhythm">El río tiene<br>su propio ritmo</h1>
-    <p data-es="Sustituye este texto por la propuesta real: qué ofreces, a quién, y por qué elegirte a ti. Una o dos frases directas bastan." data-en="Replace this text with your real pitch: what you offer, to whom, and why choose you. One or two direct sentences are enough.">Sustituye este texto por la propuesta real: qué ofreces, a quién, y por qué elegirte a ti. Una o dos frases directas bastan.</p>
+    <div class="hero-kicker" data-es="Naturaleza · Familia · Aventura" data-en="Nature · Family · Adventure">Naturaleza · Familia · Aventura</div>
+    <h1 data-es="Eco Family Tour<br>Isla Barú" data-en="Eco Family Tour<br>Isla Barú">Eco Family Tour<br>Isla Barú</h1>
+    <p data-es="Más que un tour, una conexión con la naturaleza. Descubre, conecta y disfruta un plan ecológico, seguro y lleno de diversión para toda la familia." data-en="More than a tour, a connection with nature. Discover, connect and enjoy an ecological, safe and fun-filled tour for the whole family.">Más que un tour, una conexión con la naturaleza. Descubre, conecta y disfruta un plan ecológico, seguro y lleno de diversión para toda la familia.</p>
     <div class="hero-actions">
-      <a href="#experiencias" class="btn-primary" data-es="Ver experiencias" data-en="View experiences">Ver experiencias</a>
+      <a href="#experiencias" class="btn-primary" data-es="Ver detalles del tour" data-en="View tour details">Ver detalles del tour</a>
       <a href="#nosotros" class="btn-ghost" data-es="Conócenos" data-en="Learn more">Conócenos</a>
     </div>
   </div>
   <div class="hero-media">
-    <img src="assets/img/fourislandslogo1.jpeg" alt="Descripción de la imagen">
+    <img src="assets/img/fourislandslogo1.jpeg" alt="Four Islands Eco Family Tour">
   </div>
 </section>
 
 <section class="stat-strip">
   <div class="wrap">
-    <div class="stat"><b>000</b><span data-es="Etiqueta del dato" data-en="Stat label">Etiqueta del dato</span></div>
-    <div class="stat"><b>00</b><span data-es="Etiqueta del dato" data-en="Stat label">Etiqueta del dato</span></div>
-    <div class="stat"><b>0.0</b><span data-es="Etiqueta del dato" data-en="Stat label">Etiqueta del dato</span></div>
-    <div class="stat"><b>00+</b><span data-es="Etiqueta del dato" data-en="Stat label">Etiqueta del dato</span></div>
+    <div class="stat">
+      <b data-es="Turismo Responsable" data-en="Responsible Tourism">Turismo Responsable</b>
+      <span data-es="Cuidado del entorno natural" data-en="Caring for the natural environment">Cuidado del entorno natural</span>
+    </div>
+    <div class="stat">
+      <b data-es="Ideal para Familias" data-en="Ideal for Families">Ideal para Familias</b>
+      <span data-es="Planes seguros para todos" data-en="Safe tours for everyone">Planes seguros para todos</span>
+    </div>
+    <div class="stat">
+      <b data-es="Seguro y Confiable" data-en="Safe &amp; Reliable">Seguro y Confiable</b>
+      <span data-es="Acompañamiento en todo momento" data-en="Full guidance throughout the trip">Acompañamiento en todo momento</span>
+    </div>
+    <div class="stat">
+      <b data-es="Experiencias Inolvidables" data-en="Unforgettable Experiences">Experiencias Inolvidables</b>
+      <span data-es="Conexión total con el mar" data-en="Total connection with the sea">Conexión total con el mar</span>
+    </div>
   </div>
 </section>
 
 <section class="section" id="experiencias">
   <div class="wrap">
     <div class="section-head">
-      <h2 data-es="Título de la sección de servicios o tours" data-en="Section title for services or tours">Título de la sección de servicios o tours</h2>
-      <p data-es="Frase corta explicando qué tipo de experiencias se listan abajo y cómo elegir entre ellas." data-en="Short sentence explaining the kind of experiences listed below and how to choose between them.">Frase corta explicando qué tipo de experiencias se listan abajo y cómo elegir entre ellas.</p>
+      <h2 data-es="Eco Family Tour — Isla Barú" data-en="Eco Family Tour — Isla Barú">Eco Family Tour — Isla Barú</h2>
+      <p data-es="Vive la experiencia ideal en familia explorando la vida marina y las maravillas de Barú." data-en="Enjoy the perfect family plan exploring marine life and the wonders of Barú.">Vive la experiencia ideal en familia explorando la vida marina y las maravillas de Barú.</p>
     </div>
-    <div class="experience-grid">
 
-      <article class="exp-card">
-        <div class="ph" data-es="Imagen — tarjeta 1" data-en="Image — card 1">Imagen — tarjeta 1</div>
-        <div class="exp-body">
-          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
-          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
-          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
-          <div class="exp-foot">
-            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
+    <div class="tour-detail-grid">
+      <div class="tour-card-box">
+        <h3 data-es="El Tour Incluye" data-en="Tour Includes">El Tour Incluye</h3>
+        <ul class="tour-list">
+          <li data-es="Transporte ida y regreso en bus" data-en="Roundtrip bus transportation">Transporte ida y regreso en bus</li>
+          <li data-es="Entrada incluida al Oceanario (recorrido de 2 horas)" data-en="Oceanarium admission included (2-hour tour)">Entrada incluida al Oceanario (recorrido de 2 horas)</li>
+          <li data-es="Acompañamiento de guía dentro del Oceanario" data-en="Tour guide inside the Oceanarium">Acompañamiento de guía dentro del Oceanario</li>
+          <li data-es="Coctel de frutas tropicales de bienvenida" data-en="Welcome tropical fruit cocktail">Coctel de frutas tropicales de bienvenida</li>
+          <div>
+            <li data-es="Almuerzo a elegir:" data-en="Choice of lunch:">Almuerzo a elegir:</li>
+            <ul class="menu-sublist">
+              <li data-es="Pollo / Pescado / Cerdo" data-en="Chicken / Fish / Pork">Pollo / Pescado / Cerdo</li>
+              <li data-es="Opción vegetariana" data-en="Vegetarian option">Opción vegetariana</li>
+              <li data-es="Menú infantil: Hamburguesa o Perro caliente" data-en="Kids menu: Burger or Hot dog">Menú infantil: Hamburguesa o Perro caliente</li>
+            </ul>
           </div>
-        </div>
-      </article>
+        </ul>
+      </div>
 
-      <article class="exp-card">
-        <div class="ph" data-es="Imagen — tarjeta 2" data-en="Image — card 2">Imagen — tarjeta 2</div>
-        <div class="exp-body">
-          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
-          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
-          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
-          <div class="exp-foot">
-            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="exp-card">
-        <div class="ph" data-es="Imagen — tarjeta 3" data-en="Image — card 3">Imagen — tarjeta 3</div>
-        <div class="exp-body">
-          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
-          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
-          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
-          <div class="exp-foot">
-            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="exp-card">
-        <div class="ph" data-es="Imagen — tarjeta 4" data-en="Image — card 4">Imagen — tarjeta 4</div>
-        <div class="exp-body">
-          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
-          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
-          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
-          <div class="exp-foot">
-            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="exp-card">
-        <div class="ph" data-es="Imagen — tarjeta 5" data-en="Image — card 5">Imagen — tarjeta 5</div>
-        <div class="exp-body">
-          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
-          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
-          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
-          <div class="exp-foot">
-            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="exp-card">
-        <div class="ph" data-es="Imagen — tarjeta 6" data-en="Image — card 6">Imagen — tarjeta 6</div>
-        <div class="exp-body">
-          <div class="exp-tag" data-es="Categoría" data-en="Category">Categoría</div>
-          <h3 data-es="Nombre de la experiencia" data-en="Experience name">Nombre de la experiencia</h3>
-          <p data-es="Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta." data-en="Short one- or two-line description of what it includes and what makes it different.">Descripción breve de una o dos líneas sobre qué incluye y qué la hace distinta.</p>
-          <div class="exp-foot">
-            <div class="exp-price"><span data-es="Desde" data-en="From">Desde</span><b>$000.000</b></div>
-            <a href="#" class="exp-link" data-es="Ver más" data-en="See more">Ver más</a>
-          </div>
-        </div>
-      </article>
-
+      <div class="tour-card-box">
+        <h3 data-es="Aventuras y Actividades" data-en="Adventures &amp; Activities">Aventuras y Actividades</h3>
+        <ul class="tour-list">
+          <li data-es="Avistamiento de mapaches en su hábitat natural" data-en="Raccoon sighting in their natural habitat">Avistamiento de mapaches en su hábitat natural</li>
+          <li data-es="Snorkel con arrecifes y vida marina" data-en="Snorkeling with reefs and marine life">Snorkel con arrecifes y vida marina</li>
+          <li data-es="Delfines y especies marinas dentro del Oceanario" data-en="Dolphins and marine species inside the Oceanarium">Delfines y especies marinas dentro del Oceanario</li>
+          <li data-es="Experiencia de conexión directa con la naturaleza" data-en="Direct connection experience with nature">Experiencia de conexión directa con la naturaleza</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -405,17 +370,16 @@
 <section class="about" id="nosotros">
   <div class="wrap">
     <div class="about-media">
-      <div class="ph gold" data-es="Imagen institucional — reemplazar" data-en="Institutional image — replace">Imagen institucional — reemplazar</div>
+      <div class="ph gold" data-es="Four Islands — Barú" data-en="Four Islands — Barú">Four Islands — Barú</div>
     </div>
     <div class="about-copy">
       <div class="hero-kicker" data-es="Quiénes somos" data-en="Who we are">Quiénes somos</div>
-      <h2 data-es="Título sobre la misión o historia del proyecto" data-en="Title about the project's mission or story">Título sobre la misión o historia del proyecto</h2>
-      <p data-es="Párrafo de ejemplo explicando el origen, el propósito y a quién sirve la organización o negocio." data-en="Sample paragraph explaining the origin, purpose, and who the organization or business serves.">Párrafo de ejemplo explicando el origen, el propósito y a quién sirve la organización o negocio.</p>
-      <p data-es="Segundo párrafo opcional con más contexto o un llamado a conocer más." data-en="Optional second paragraph with more context or a call to learn more.">Segundo párrafo opcional con más contexto o un llamado a conocer más.</p>
+      <h2 data-es="Pasión por el mar, la naturaleza y la familia" data-en="Passion for the sea, nature, and family">Pasión por el mar, la naturaleza y la familia</h2>
+      <p data-es="En Four Islands creamos experiencias náuticas y turísticas memorables en Isla Barú. Nuestro compromiso es brindar tours seguros, responsables y respetuosos con el ecosistema marino." data-en="At Four Islands we create memorable nautical and tourism experiences in Isla Barú. Our commitment is to provide safe, responsible, and eco-friendly tours.">En Four Islands creamos experiencias náuticas y turísticas memorables en Isla Barú. Nuestro compromiso es brindar tours seguros, responsables y respetuosos con el ecosistema marino.</p>
       <ul class="about-list">
-        <li><b>01</b> <span data-es="Punto clave o valor diferencial número uno." data-en="Key point or differentiator number one.">Punto clave o valor diferencial número uno.</span></li>
-        <li><b>02</b> <span data-es="Punto clave o valor diferencial número dos." data-en="Key point or differentiator number two.">Punto clave o valor diferencial número dos.</span></li>
-        <li><b>03</b> <span data-es="Punto clave o valor diferencial número tres." data-en="Key point or differentiator number three.">Punto clave o valor diferencial número tres.</span></li>
+        <li><b>01</b> <span data-es="Guías capacitados y acompañamiento personalizado." data-en="Trained guides and personalized support.">Guías capacitados y acompañamiento personalizado.</span></li>
+        <li><b>02</b> <span data-es="Planes familiares completos con transporte y alimentación." data-en="Complete family tours with transportation and meals.">Planes familiares completos con transporte y alimentación.</span></li>
+        <li><b>03</b> <span data-es="Compromiso real con el turismo sostenible y ecológico." data-en="Real commitment to sustainable and eco-tourism.">Compromiso real con el turismo sostenible y ecológico.</span></li>
       </ul>
     </div>
   </div>
@@ -424,29 +388,26 @@
 <section class="section testimonials" id="opiniones">
   <div class="wrap">
     <div class="section-head">
-      <h2 data-es="Lo que dicen quienes ya vivieron la experiencia" data-en="What people who already tried it are saying">Lo que dicen quienes ya vivieron la experiencia</h2>
-      <p data-es="Reemplaza estas citas por testimonios reales de clientes o beneficiarios." data-en="Replace these quotes with real testimonials from clients or beneficiaries.">Reemplaza estas citas por testimonios reales de clientes o beneficiarios.</p>
+      <h2 data-es="Lo que dicen nuestros visitantes" data-en="What our visitors say">Lo que dicen nuestros visitantes</h2>
+      <p data-es="Experiencias reales de quienes disfrutaron el Eco Family Tour." data-en="Real experiences from people who enjoyed the Eco Family Tour.">Experiencias reales de quienes disfrutaron el Eco Family Tour.</p>
     </div>
     <div class="quote-row">
       <div class="quote">
-        <p data-es="&quot;Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta.&quot;" data-en="&quot;Sample testimonial text. Replace with a real, short, concrete quote.&quot;">"Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta."</p>
+        <p data-es="&quot;Una experiencia inolvidable. La visita al oceanario y ver a los delfines junto a mis hijos fue increíble. Súper recomendado.&quot;" data-en="&quot;An unforgettable experience. Visiting the oceanarium and seeing dolphins with my kids was amazing. Highly recommended.&quot;">"Una experiencia inolvidable. La visita al oceanario y ver a los delfines junto a mis hijos fue increíble. Súper recomendado."</p>
         <div class="quote-who">
-          <div class="ph" style="width:36px;height:36px;border-radius:50%;"></div>
-          <div><b>Nombre Apellido</b><span data-es="Origen o contexto" data-en="Origin or context">Origen o contexto</span></div>
+          <div><b>Familia Gómez</b><span data-es="Turistas nacionales" data-en="National tourists">Turistas nacionales</span></div>
         </div>
       </div>
       <div class="quote">
-        <p data-es="&quot;Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta.&quot;" data-en="&quot;Sample testimonial text. Replace with a real, short, concrete quote.&quot;">"Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta."</p>
+        <p data-es="&quot;El transporte muy cómodo y el almuerzo delicioso. El snorkel cerca de los arrecifes de Barú valió totalmente la pena.&quot;" data-en="&quot;Very comfortable transport and delicious lunch. Snorkeling near Barú's reefs was totally worth it.&quot;">"El transporte muy cómodo y el almuerzo delicioso. El snorkel cerca de los arrecifes de Barú valió totalmente la pena."</p>
         <div class="quote-who">
-          <div class="ph" style="width:36px;height:36px;border-radius:50%;"></div>
-          <div><b>Nombre Apellido</b><span data-es="Origen o contexto" data-en="Origin or context">Origen o contexto</span></div>
+          <div><b>Carolina R.</b><span data-es="Visitante" data-en="Visitor">Visitante</span></div>
         </div>
       </div>
       <div class="quote">
-        <p data-es="&quot;Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta.&quot;" data-en="&quot;Sample testimonial text. Replace with a real, short, concrete quote.&quot;">"Texto de testimonio de ejemplo. Sustituir por una cita real, breve y concreta."</p>
+        <p data-es="&quot;Atención excelente desde la salida en bus hasta el regreso. Un plan seguro y tranquilo para disfrutar el mar.&quot;" data-en="&quot;Excellent service from the bus departure to the return. A safe and calm plan to enjoy the sea.&quot;">"Atención excelente desde la salida en bus hasta el regreso. Un plan seguro y tranquilo para disfrutar el mar."</p>
         <div class="quote-who">
-          <div class="ph" style="width:36px;height:36px;border-radius:50%;"></div>
-          <div><b>Nombre Apellido</b><span data-es="Origen o contexto" data-en="Origin or context">Origen o contexto</span></div>
+          <div><b>Andrés M.</b><span data-es="Turista" data-en="Tourist">Turista</span></div>
         </div>
       </div>
     </div>
@@ -455,8 +416,8 @@
 
 <section class="cta-band" id="contacto">
   <div class="wrap">
-    <h2 data-es="¿Listo para vivir la experiencia? Escríbenos y reservamos tu tour." data-en="Ready for the experience? Message us and we'll book your tour.">¿Listo para vivir la experiencia? Escríbenos y reservamos tu tour.</h2>
-    <a href="https://wa.me/573239606356?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20detallada%20sobre%20la%20disponibilidad%20y%20tarifas%20de%20sus%20tours" class="btn-dark" data-es="Escribir por WhatsApp" data-en="Message us on WhatsApp">Escribir por WhatsApp</a>
+    <h2 data-es="La vida es mejor en el mar. ¡Reserva tu aventura!" data-en="Life is better at sea. Book your adventure!">La vida es mejor en el mar. ¡Reserva tu aventura!</h2>
+    <a href="https://wa.me/573239606356?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20detallada%20sobre%20la%20disponibilidad%20y%20tarifas%20del%20Eco%20Family%20Tour" class="btn-dark" data-es="Escribir por WhatsApp" data-en="Message us on WhatsApp">Escribir por WhatsApp</a>
   </div>
 </section>
 
@@ -464,7 +425,7 @@
   <div class="footer-grid wrap">
     <div class="footer-brand">
       <h3>Four Islands</h3>
-      <p data-es="Descripción corta de una línea sobre el negocio o la fundación, para reemplazar." data-en="Short one-line description of the business or foundation, to replace.">Descripción corta de una línea sobre el negocio o la fundación, para reemplazar.</p>
+      <p data-es="Turismo ecológico y experiencias memorables en Isla Barú." data-en="Ecological tourism and memorable experiences in Isla Barú.">Turismo ecológico y experiencias memorables en Isla Barú.</p>
     </div>
     <div class="footer-col">
       <h4 data-es="NAVEGACIÓN" data-en="NAVIGATION">NAVEGACIÓN</h4>
@@ -478,8 +439,7 @@
       <h4 data-es="CONTACTO" data-en="CONTACT">CONTACTO</h4>
       <ul>
         <li><a href="https://wa.me/573239606356">+57 3239606356</a></li>
-        <li><a href="#">correo@ejemplo.com</a></li>
-        <li><a href="#" data-es="Dirección, Ciudad" data-en="Address, City">Dirección, Ciudad</a></li>
+        <li><a href="#contacto" data-es="Isla Barú, Colombia" data-en="Isla Barú, Colombia">Isla Barú, Colombia</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -492,8 +452,8 @@
     </div>
   </div>
   <div class="footer-bottom wrap">
-    <span data-es="© Nombre del proyecto" data-en="© Project name">© Nombre del proyecto</span>
-    <span data-es="Plantilla de diseño" data-en="Design template">Plantilla de diseño</span>
+    <span data-es="© 2026 Four Islands. Todos los derechos reservados." data-en="© 2026 Four Islands. All rights reserved.">© 2026 Four Islands. Todos los derechos reservados.</span>
+    <span data-es="Diseñado por Luis Rojas" data-en="Designed by Luis Rojas">Diseñado por Luis Rojas</span>
   </div>
 </footer>
 
