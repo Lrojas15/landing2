@@ -407,6 +407,7 @@
   </div>
 </section>
 
+<!-- PRIMER TOUR: Eco Family Tour — Isla Barú -->
 <section class="section" id="experiencias">
   <div class="wrap">
     <div class="section-head">
@@ -414,8 +415,9 @@
       <p data-es="Vive la experiencia ideal en familia explorando la vida marina y las maravillas de Barú." data-en="Enjoy the perfect family plan exploring marine life and the wonders of Barú.">Vive la experiencia ideal en familia explorando la vida marina y las maravillas de Barú.</p>
     </div>
 
-    <div class="section-carousel-media">
-      <div class="carousel-slides" id="sectionCarouselSlides">
+    <!-- Carrusel 1 con clase reutilizable -->
+    <div class="section-carousel-media custom-carousel">
+      <div class="carousel-slides">
         <div class="carousel-slide">
           <img src="assets/img/foto1.jpg" alt="Isla Barú 1" onerror="this.src='assets/baru/kanenori-beach-6292382_1920.jpg'">
         </div>
@@ -432,9 +434,9 @@
           <img src="assets/img/foto5.jpg" alt="Isla Barú 5" onerror="this.src='assets/baru/walkerssk-beach-1761410_1920.jpg'">
         </div>
       </div>
-      <button class="carousel-btn prev" id="secPrevBtn" aria-label="Anterior">&#10094;</button>
-      <button class="carousel-btn next" id="secNextBtn" aria-label="Siguiente">&#10095;</button>
-      <div class="carousel-dots" id="secCarouselDots"></div>
+      <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+      <button class="carousel-btn next" aria-label="Siguiente">&#10095;</button>
+      <div class="carousel-dots"></div>
     </div>
 
     <div class="tour-detail-grid">
@@ -467,14 +469,19 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- SEGUNDO TOUR: Segunda Experiencia (Independiente) -->
+<section class="section" style="padding-top: 0;">
   <div class="wrap">
     <div class="section-head">
-      <h2 data-es="Eco Family Tour — Isla Barú" data-en="Eco Family Tour — Isla Barú">Eco Family Tour — Isla Barú2</h2>
+      <h2 data-es="Eco Family Tour — Isla Barú 2" data-en="Eco Family Tour — Isla Barú 2">Eco Family Tour — Isla Barú 2</h2>
       <p data-es="Vive la experiencia ideal en familia explorando la vida marina y las maravillas de Barú." data-en="Enjoy the perfect family plan exploring marine life and the wonders of Barú.">Vive la experiencia ideal en familia explorando la vida marina y las maravillas de Barú.</p>
     </div>
 
-    <div class="section-carousel-media">
-      <div class="carousel-slides" id="sectionCarouselSlides">
+    <!-- Carrusel 2 con clase reutilizable -->
+    <div class="section-carousel-media custom-carousel">
+      <div class="carousel-slides">
         <div class="carousel-slide">
           <img src="assets/img/foto1.jpg" alt="Isla Barú 1" onerror="this.src='assets/baru/kanenori-beach-6292382_1920.jpg'">
         </div>
@@ -491,9 +498,9 @@
           <img src="assets/img/foto5.jpg" alt="Isla Barú 5" onerror="this.src='assets/baru/walkerssk-beach-1761410_1920.jpg'">
         </div>
       </div>
-      <button class="carousel-btn prev" id="secPrevBtn" aria-label="Anterior">&#10094;</button>
-      <button class="carousel-btn next" id="secNextBtn" aria-label="Siguiente">&#10095;</button>
-      <div class="carousel-dots" id="secCarouselDots"></div>
+      <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+      <button class="carousel-btn next" aria-label="Siguiente">&#10095;</button>
+      <div class="carousel-dots"></div>
     </div>
 
     <div class="tour-detail-grid">
@@ -600,7 +607,11 @@
       <h4 data-es="CONTACTO" data-en="CONTACT">CONTACTO</h4>
       <ul>
         <li><a href="https://wa.me/573239606356">+57 3239606356</a></li>
-        <li><a href="https://maps.google.com/?q=Cartagena+de+Indias,+Colombia" target="_blank" rel="noopener noreferrer" data-es="Cartagena de Indias, Colombia" data-en="Cartagena de Indias, Colombia">Cagena de Indias, Colombia</a></li>
+        <li>
+          <a href="https://maps.google.com/?q=Cartagena+de+Indias,+Colombia" target="_blank" rel="noopener noreferrer" data-es="Cartagena de Indias, Colombia" data-en="Cartagena de Indias, Colombia">
+            Cartagena de Indias, Colombia
+          </a>
+        </li>
       </ul>
     </div>
     <div class="footer-col">
@@ -640,59 +651,60 @@
       });
     }
 
-    const secSlides = document.getElementById('sectionCarouselSlides');
-    const secPrevBtn = document.getElementById('secPrevBtn');
-    const secNextBtn = document.getElementById('secNextBtn');
-    const secDotsContainer = document.getElementById('secCarouselDots');
+    /* Script actualizado para inicializar CUALQUIER cantidad de carruseles de forma independiente */
+    document.querySelectorAll('.custom-carousel').forEach(carousel => {
+      const slides = carousel.querySelector('.carousel-slides');
+      const items = carousel.querySelectorAll('.carousel-slide');
+      const prevBtn = carousel.querySelector('.carousel-btn.prev');
+      const nextBtn = carousel.querySelector('.carousel-btn.next');
+      const dotsContainer = carousel.querySelector('.carousel-dots');
+      
+      let currentIndex = 0;
+      let interval;
 
-    if (secSlides && secDotsContainer && secPrevBtn && secNextBtn) {
-      const secItems = secSlides.querySelectorAll('.carousel-slide');
-      let secCurrentIndex = 0;
-      let secInterval;
-
-      secItems.forEach((_, i) => {
+      items.forEach((_, i) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSecSlide(i));
-        secDotsContainer.appendChild(dot);
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
       });
 
-      const secDots = secDotsContainer.querySelectorAll('.dot');
+      const dots = dotsContainer.querySelectorAll('.dot');
 
-      function updateSecCarousel() {
-        secSlides.style.transform = `translateX(-${secCurrentIndex * 100}%)`;
-        secDots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === secCurrentIndex);
+      function updateCarousel() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
         });
       }
 
-      function goToSecSlide(index) {
-        secCurrentIndex = index;
-        updateSecCarousel();
-        resetSecInterval();
+      function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+        resetInterval();
       }
 
-      function nextSecSlide() {
-        secCurrentIndex = (secCurrentIndex + 1) % secItems.length;
-        updateSecCarousel();
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
       }
 
-      function prevSecSlide() {
-        secCurrentIndex = (secCurrentIndex - 1 + secItems.length) % secItems.length;
-        updateSecCarousel();
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
       }
 
-      function resetSecInterval() {
-        clearInterval(secInterval);
-        secInterval = setInterval(nextSecSlide, 4500);
+      function resetInterval() {
+        clearInterval(interval);
+        interval = setInterval(nextSlide, 4500);
       }
 
-      secNextBtn.addEventListener('click', () => { nextSecSlide(); resetSecInterval(); });
-      secPrevBtn.addEventListener('click', () => { prevSecSlide(); resetSecInterval(); });
+      nextBtn.addEventListener('click', () => { nextSlide(); resetInterval(); });
+      prevBtn.addEventListener('click', () => { prevSlide(); resetInterval(); });
 
-      secInterval = setInterval(nextSecSlide, 4500);
-    }
+      interval = setInterval(nextSlide, 4500);
+    });
   })();
 </script>
 </body>
